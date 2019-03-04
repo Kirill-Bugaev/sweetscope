@@ -47,32 +47,33 @@ if has('cscope')
 
 	" Define wrappers for cscope commands
 	command -nargs=* -complete=tag SweetScopeS call s:Run_cscope('s', <q-args>)
-	command -nargs=* -complete=tag SweetScopes call s:Run_cscope('s', <q-args>)
-	command -nargs=* -complete=tag SweetScope0 call s:Run_cscope('s', <q-args>)
 	command -nargs=* -complete=tag SweetScopeG call s:Run_cscope('g', <q-args>)
-	command -nargs=* -complete=tag SweetScopeg call s:Run_cscope('g', <q-args>)
-	command -nargs=* -complete=tag SweetScope1 call s:Run_cscope('g', <q-args>)
 	command -nargs=* -complete=tag SweetScopeD call s:Run_cscope('d', <q-args>)
-	command -nargs=* -complete=tag SweetScoped call s:Run_cscope('d', <q-args>)
-	command -nargs=* -complete=tag SweetScope2 call s:Run_cscope('d', <q-args>)
 	command -nargs=* -complete=tag SweetScopeC call s:Run_cscope('c', <q-args>)
-	command -nargs=* -complete=tag SweetScopec call s:Run_cscope('c', <q-args>)
-	command -nargs=* -complete=tag SweetScope3 call s:Run_cscope('c', <q-args>)
 	command -nargs=* -complete=tag SweetScopeT call s:Run_cscope('t', <q-args>)
-	command -nargs=* -complete=tag SweetScopet call s:Run_cscope('t', <q-args>)
-	command -nargs=* -complete=tag SweetScope4 call s:Run_cscope('t', <q-args>)
 	command -nargs=* -complete=tag SweetScopeE call s:Run_cscope('e', <q-args>)
-	command -nargs=* -complete=tag SweetScopee call s:Run_cscope('e', <q-args>)
-	command -nargs=* -complete=tag SweetScope6 call s:Run_cscope('e', <q-args>)
 	command -nargs=* -complete=tag SweetScopeF call s:Run_cscope('f', <q-args>)
-	command -nargs=* -complete=tag SweetScopef call s:Run_cscope('f', <q-args>)
-	command -nargs=* -complete=tag SweetScope7 call s:Run_cscope('f', <q-args>)
 	command -nargs=* -complete=tag SweetScopeI call s:Run_cscope('i', <q-args>)
-	command -nargs=* -complete=tag SweetScopei call s:Run_cscope('i', <q-args>)
-	command -nargs=* -complete=tag SweetScope8 call s:Run_cscope('i', <q-args>)
 	command -nargs=* -complete=tag SweetScopeA call s:Run_cscope('a', <q-args>)
-	command -nargs=* -complete=tag SweetScopea call s:Run_cscope('a', <q-args>)
-	command -nargs=* -complete=tag SweetScope9 call s:Run_cscope('a', <q-args>)
+	" Define abbreviations
+	cabbrev SweetScopes SweetScopeS
+	cabbrev SweetScope0 SweetScopeS
+	cabbrev SweetScopeg SweetScopeG
+	cabbrev SweetScope1 SweetScopeG
+	cabbrev SweetScoped SweetScopeD
+	cabbrev SweetScope2 SweetScopeD
+	cabbrev SweetScopec SweetScopeC
+	cabbrev SweetScope3 SweetScopeC
+	cabbrev SweetScopet SweetScopeT
+	cabbrev SweetScope4 SweetScopeT
+	cabbrev SweetScopee SweetScopeE
+	cabbrev SweetScope6 SweetScopeE
+	cabbrev SweetScopef SweetScopeF
+	cabbrev SweetScope7 SweetScopeF
+	cabbrev SweetScopei SweetScopeI
+	cabbrev SweetScope8 SweetScopeI
+	cabbrev SweetScopea SweetScopeA
+	cabbrev SweetScope9 SweetScopeA
 	
 	" Define commands for cscope dbs
 	command -bar -nargs=* -complete=file SweetScopeLoadDB
@@ -422,7 +423,7 @@ if has('cscope')
 		let s:sweetscope_history_previous_map = '<C-P>'
 	endif
 	" Delete current quickfix list from history
-	if exists('g:sweetscope_history_delete_map ') && s:sweetscope_usermaps
+	if exists('g:sweetscope_history_delete_map') && s:sweetscope_usermaps
 		let s:sweetscope_history_delete_map = g:sweetscope_history_delete_map
 	else
 		let s:sweetscope_history_delete_map = '<C-D>'
@@ -2214,7 +2215,7 @@ func s:SaveHistoryToFile(bang, ...)
 	" Determine target of saving
 	if len(a:000) > 0 && a:000[0] !=? 'c' && a:000[0] !=? 'a'
 		echom 'sweetscope: Wrong first argument. Usage: '
-					\ . 'SweetScopeSaveHistory[!] [c/a [filename]]'
+					\ . 'SweetScopeSaveHistory[!] [{c/a} [filename]]'
 		" Disable echo message highlighting
 		echohl None
 		return
