@@ -16,6 +16,31 @@ This plugin was written for use cscope tool in Vim easy and comfortable.
 * Search and select in history of cscope queries
 * Restore quickfix stack after Vim native cscope query, prepend quickfix flooding
 
+### Default key maps
+Just move cursor on interesting word or select it visually and use some of key maps below.
+`Ctrl-\` + `\` - Interactive cscope query
+`Ctrl-\` + `s` - Find this C symbol
+`Ctrl-\` + `g` - Find this definition
+`Ctrl-\` + `d` - Find functions called by this function
+`Ctrl-\` + `c` - Find functions calling this function
+`Ctrl-\` + `t` - Find this text string
+`Ctrl-\` + `e` - Find this egrep pattern
+`Ctrl-\` + `f` - Find this file
+`Ctrl-\` + `i` - Find files #including this file
+`Ctrl-\` + `a` - Find places where this symbol is assigned a value
+`Ctrl-\` + `l` - Choose quickfix list in history interactively
+`Ctrl-\` + `h` - Search forward in history
+`Ctrl-\` + `H` - Search backward in history
+`Shift-J` - Jump to next search result in quickfix window (for quickfix buffer only)
+`Shift-K` - Jump to previous search result in quickfix window (for quickfix buffer only)
+`Shift-H` - Toggle search highlighting in quickfix window
+`Ctrl-\` + `q` - Select in all history
+`Ctrl-\` + `Q` - Select in current quickfix list
+`[n]gl` - Go to [n] quickfix list in history
+`Ctrl-N` - Jump to next in history quickfix list
+`Ctrl-P` - Jump to previous in history quickfix list
+`Ctrl-D` - Remove current quickfix list from history
+
 ## Options
 
 ### sweetscope_runmethod
@@ -229,6 +254,9 @@ let g:sweetscope_noselect_in_selected = 1
 (boolean, default `1`)
 
 ### sweetscope_usermaps
+```vim
+let g:sweetscope_usermaps = 1
+```
 If `1` set user defined key maps instead of default. If you want to set some key map by default just not define appropriate global variable. Example:
 ```vim
 " Set default key map for interactive cscope query
@@ -239,9 +267,10 @@ If you want to switch off some key map define appropriate global variable with e
 " Switch off key map for interactive cscope query
 let g:sweetscope_find_interactive_map = ''
 ```
+(boolean, default `0`)
 
 ## Key maps
-Query, search and select maps can be invoked both for word under cursor and for visually selected text. 
+Query, search and select maps can be invoked both for word under cursor and for visually selected text. If you are going to change plugin default maps don't forget to set `g:sweetscope_usermaps = 1`
 
 ### sweetscope_find_interactive_map
 Key map for interactive cscope query.
@@ -416,32 +445,41 @@ cabbrev ssa SweetScopeA
 #### SweetScopeInteractive {pattern} [query]
 Invoke interactive cscope query for {pattern} if [query] is omitted. If [query] is present invokes speified cscope query.
 
-#### SweetScopeS {pattern} (abbreviations: SweetScopes, SweetScope0)
+#### SweetScopeS {pattern}
 Invoke s (Find this C symbol) cscope query for {pattern}.
+abbreviations: SweetScopes, SweetScope0
 
-#### SweetScopeG {pattern} (abbreviations: SweetScopeg, SweetScope1)
+#### SweetScopeG {pattern}
 Invoke g (Find this definition) cscope query for {pattern}.
+abbreviations: SweetScopeg, SweetScope1
 
-#### SweetScopeD {pattern} (abbreviations: SweetScoped, SweetScope2)
+#### SweetScopeD {pattern}
 Invoke d (Find functions called by this function) cscope query for {pattern}.
+abbreviations: SweetScoped, SweetScope2
 
-#### SweetScopeC {pattern} (abbreviations: SweetScopec, SweetScope3)
+#### SweetScopeC {pattern}
 Invoke c (Find functions calling this function) cscope query for {pattern}.
+abbreviations: SweetScopec, SweetScope3
 
-#### SweetScopeT {pattern} (abbreviations: SweetScopet, SweetScope4)
+#### SweetScopeT {pattern}
 Invoke t (Find this text string) cscope query for {pattern}.
+abbreviations: SweetScopet, SweetScope4
 
-#### SweetScopeE {pattern} (abbreviations: SweetScopee, SweetScope6)
+#### SweetScopeE {pattern}
 Invoke e (Find this egrep pattern) cscope query for {pattern}.
+abbreviations: SweetScopee, SweetScope6
 
-#### SweetScopeF {pattern} (abbreviations: SweetScopef, SweetScope7)
+#### SweetScopeF {pattern}
 Invoke f (Find this file) cscope query for {pattern}.
+abbreviations: SweetScopef, SweetScope7
 
-#### SweetScopeI {pattern} (abbreviations: SweetScopei, SweetScope8)
+#### SweetScopeI {pattern}
 Invoke i (Find files #including this file) cscope query for {pattern}.
+abbreviations: SweetScopei, SweetScope8
 
-#### SweetScopeA {pattern} (abbreviations: SweetScopea, SweetScope9)
+#### SweetScopeA {pattern}
 Invoke a (Find places where this symbol is assigned a value) cscope query for {pattern}.
+abbreviations: SweetScopea, SweetScope9
 
 ### cscope db commands
 
