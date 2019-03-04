@@ -1,3 +1,21 @@
+" ============================================================================
+" File:        sweetscope.vim
+" Description: Run cscope query and manage quickfix lists with results
+" Author:      Kirill Bugaev <kirill.bugaev87@gmail.com>
+" Licence:     Vim licence
+" Website:     https://github.com/Kirill-Bugaev/sweetscope
+" Version:     0.1
+"
+" Original taglist copyright notice:
+"              Permission is hereby granted to use and distribute this code,
+"              with or without modifications, provided that this copyright
+"              notice is copied with it. Like anything else that's free,
+"              taglist.vim is provided *as is* and comes with no warranty of
+"              any kind, either expressed or implied. In no event will the
+"              copyright holder be liable for any damamges resulting from the
+"              use of this software.
+" ============================================================================
+
 " Predefined settings
 if has('cscope')
 	set cscopeverbose	" enable messages from cscope

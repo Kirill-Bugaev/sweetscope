@@ -469,38 +469,47 @@ Invoke interactive cscope query for {pattern} if [query] is omitted. If [query] 
 
 #### SweetScopeS {pattern}
 Invoke s (Find this C symbol) cscope query for {pattern}.
+
 abbreviations: SweetScopes, SweetScope0
 
 #### SweetScopeG {pattern}
 Invoke g (Find this definition) cscope query for {pattern}.
+
 abbreviations: SweetScopeg, SweetScope1
 
 #### SweetScopeD {pattern}
 Invoke d (Find functions called by this function) cscope query for {pattern}.
+
 abbreviations: SweetScoped, SweetScope2
 
 #### SweetScopeC {pattern}
 Invoke c (Find functions calling this function) cscope query for {pattern}.
+
 abbreviations: SweetScopec, SweetScope3
 
 #### SweetScopeT {pattern}
 Invoke t (Find this text string) cscope query for {pattern}.
+
 abbreviations: SweetScopet, SweetScope4
 
 #### SweetScopeE {pattern}
 Invoke e (Find this egrep pattern) cscope query for {pattern}.
+
 abbreviations: SweetScopee, SweetScope6
 
 #### SweetScopeF {pattern}
 Invoke f (Find this file) cscope query for {pattern}.
+
 abbreviations: SweetScopef, SweetScope7
 
 #### SweetScopeI {pattern}
 Invoke i (Find files #including this file) cscope query for {pattern}.
+
 abbreviations: SweetScopei, SweetScope8
 
 #### SweetScopeA {pattern}
 Invoke a (Find places where this symbol is assigned a value) cscope query for {pattern}.
+
 abbreviations: SweetScopea, SweetScope9
 
 ### cscope db commands
