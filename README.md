@@ -18,6 +18,7 @@ This plugin was written for use cscope tool in Vim easy and comfortable.
 
 ### Default key maps
 Just move cursor on interesting word or select it visually and use some of key maps below.
+
 `Ctrl-\` + `\` - Interactive cscope query
 
 `Ctrl-\` + `s` - Find this C symbol
