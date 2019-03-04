@@ -3,7 +3,7 @@ Vim plugin for cscope with improved quickfix list management
 
 ## Introduction
 
-This plugin was written for use cscope tool in Vim easy and comfortable.
+This plugin was written for using cscope tool in Vim easy and comfortable.
 
 ### Features
 * Interactive query to cscope db
@@ -11,10 +11,10 @@ This plugin was written for use cscope tool in Vim easy and comfortable.
 * Two run methods of cscope query: Vim native and external
 * Auto load cscope db for predefined file types
 * Map predefined file types and quickfix buffer for cscope query
-* Save history of cscope queries
-* Save and load history of cscope queries to\from file 
-* Search and select in history of cscope queries
-* Restore quickfix stack after Vim native cscope query, prepend quickfix flooding
+* Manage history of queries
+* Save and load history of queries to\from file 
+* Search and select in history of queries
+* Restore quickfix stack after cscope query run, prepend quickfix flooding
 
 ### Default key maps
 Just move cursor on interesting word or select it visually and use some of key maps below.
