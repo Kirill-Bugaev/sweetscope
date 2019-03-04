@@ -19,26 +19,47 @@ This plugin was written for use cscope tool in Vim easy and comfortable.
 ### Default key maps
 Just move cursor on interesting word or select it visually and use some of key maps below.
 `Ctrl-\` + `\` - Interactive cscope query
+
 `Ctrl-\` + `s` - Find this C symbol
+
 `Ctrl-\` + `g` - Find this definition
+
 `Ctrl-\` + `d` - Find functions called by this function
+
 `Ctrl-\` + `c` - Find functions calling this function
+
 `Ctrl-\` + `t` - Find this text string
+
 `Ctrl-\` + `e` - Find this egrep pattern
+
 `Ctrl-\` + `f` - Find this file
+
 `Ctrl-\` + `i` - Find files #including this file
+
 `Ctrl-\` + `a` - Find places where this symbol is assigned a value
+
 `Ctrl-\` + `l` - Choose quickfix list in history interactively
+
 `Ctrl-\` + `h` - Search forward in history
+
 `Ctrl-\` + `H` - Search backward in history
+
 `Shift-J` - Jump to next search result in quickfix window (for quickfix buffer only)
+
 `Shift-K` - Jump to previous search result in quickfix window (for quickfix buffer only)
+
 `Shift-H` - Toggle search highlighting in quickfix window
+
 `Ctrl-\` + `q` - Select in all history
+
 `Ctrl-\` + `Q` - Select in current quickfix list
+
 `[n]gl` - Go to [n] quickfix list in history
+
 `Ctrl-N` - Jump to next in history quickfix list
+
 `Ctrl-P` - Jump to previous in history quickfix list
+
 `Ctrl-D` - Remove current quickfix list from history
 
 ## Options
