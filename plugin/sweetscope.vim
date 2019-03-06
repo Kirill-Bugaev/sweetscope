@@ -1,5 +1,6 @@
 " ============================================================================
 " File:        sweetscope.vim
+" Date:	       March 5, 2019
 " Description: Run cscope query and manage quickfix lists with results
 " Author:      Kirill Bugaev <kirill.bugaev87@gmail.com>
 " Licence:     Vim licence
