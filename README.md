@@ -178,7 +178,7 @@ let g:sweetscope_save_qf_changes = 1
 (boolean, default `1`)
 
 ### sweetscope_save_qf_stack
-Vim native cscope query clears quickfix stack after request (but I don't remember in which cases exactly). If this option is enabled plugin will save quickfix stack before cscope query run and restore after.
+Vim native cscope query removes all quickfix lists after current from stack. If this option is enabled plugin will save quickfix stack before cscope query run and restore after.
 ```vim
 let g:sweetscope_save_qf_stack = 1
 ```
