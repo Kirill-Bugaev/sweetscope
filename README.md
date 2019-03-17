@@ -551,7 +551,7 @@ Select items in history lists which match {pattern} and make new quickfix list w
 
 ## Known bugs
 
-### Duplicate quickfix lists when external cscope utility is used
+### Duplicate quickfix lists when external cscope run method is used
 When using external cscope run method (`g:sweetscope_runmethod = 0`) with
 `g:sweetscope_save_qf_changes = 1` option quickfix lists can be duplicated.
 This occurs because external run method can make output like this:
