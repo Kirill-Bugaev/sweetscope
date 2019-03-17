@@ -959,61 +959,71 @@ func s:MapCurrentBufferForQuery()
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_interactive_map
 					\ . ' :call <SID>InteractiveRequest(expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_interactive_map
-					\ . ' :call <SID>InteractiveRequest(<SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>InteractiveRequest(<SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_find_s_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_s_map
 					\ . ' :call <SID>Run_cscope("s", expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_s_map
-					\ . ' :call <SID>Run_cscope("s", <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>Run_cscope("s", <SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_find_g_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_g_map
 					\ . ' :call <SID>Run_cscope("g", expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_g_map
-					\ . ' :call <SID>Run_cscope("g", <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>Run_cscope("g", <SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_find_d_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_d_map
 					\ . ' :call <SID>Run_cscope("d", expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_d_map
-					\ . ' :call <SID>Run_cscope("d", <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>Run_cscope("d", <SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_find_c_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_c_map
 					\ . ' :call <SID>Run_cscope("c", expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_c_map
-					\ . ' :call <SID>Run_cscope("c", <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>Run_cscope("c", <SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_find_t_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_t_map
 					\ . ' :call <SID>Run_cscope("t", expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_t_map
-					\ . ' :call <SID>Run_cscope("t", <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>Run_cscope("t", <SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_find_e_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_e_map
 					\ . ' :call <SID>Run_cscope("e", expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_e_map
-					\ . ' :call <SID>Run_cscope("e", <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>Run_cscope("e", <SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_find_f_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_f_map
 					\ . ' :call <SID>Run_cscope("f", expand("<cfile>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_f_map
-					\ . ' :call <SID>Run_cscope("f", <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>Run_cscope("f", <SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_find_i_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_i_map
 					\ . ' :call <SID>Run_cscope("i", expand("<cfile>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_i_map
-					\ . ' :call <SID>Run_cscope("i", <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>Run_cscope("i", <SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_find_a_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_find_a_map
 					\ . ' :call <SID>Run_cscope("a", expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_find_a_map
-					\ . ' :call <SID>Run_cscope("a", <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>Run_cscope("a", <SID>get_visual_selection())"<CR>'
 	endif
 endfunc
 
@@ -1022,13 +1032,15 @@ func s:MapCurrentBufferForSearch()
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_search_forward_map
 					\ . ' :call <SID>SearchInHistoryNext(expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_search_forward_map
-					\ . ' :call <SID>SearchInHistoryNext(<SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>SearchInHistoryNext(<SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_search_backward_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_search_backward_map
 					\ . ' :call <SID>SearchInHistoryPrev(expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_search_backward_map
-					\ . ' :call <SID>SearchInHistoryPrev(<SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>SearchInHistoryPrev(<SID>get_visual_selection())"<CR>'
 	endif
 endfunc
 
@@ -1052,13 +1064,15 @@ func s:MapCurrentBufferForSelect()
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_select_in_all_history_map
 					\ . ' :call <SID>SelectInHistory(0, expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_select_in_all_history_map
-					\ . ' :call <SID>SelectInHistory(0, <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>SelectInHistory(0, <SID>get_visual_selection())"<CR>'
 	endif
 	if s:sweetscope_select_in_current_list_map != ''
 		exe 'nnoremap <silent> <buffer> ' . s:sweetscope_select_in_current_list_map
 					\ . ' :call <SID>SelectInHistory(1, expand("<cword>"))<CR>'
 		exe 'vnoremap <silent> <buffer> ' . s:sweetscope_select_in_current_list_map
-					\ . ' :call <SID>SelectInHistory(1, <SID>get_visual_selection())<CR>'
+					\ . ' :<C-U>exe'
+					\ . ' "call <SID>SelectInHistory(1, <SID>get_visual_selection())"<CR>'
 	endif
 endfunc
 
