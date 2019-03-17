@@ -547,3 +547,29 @@ Toggle search highlighting. With [!] disable highlighting.
 
 #### SweetScopeSelect[!] {pattern}
 Select items in history lists which match {pattern} and make new quickfix list with results. With [!] select only in current quickfix list.
+
+
+## Known bugs
+
+### Duplicate quickfix lists when external cscope utility is used
+When using external cscope run method (`g:sweetscope_runmethod = 0`) with
+`g:sweetscope_save_qf_changes = 1` option quickfix lists can be duplicated.
+This occurs because external run method can make output like this:
+```
+main.c|21| push(atof(s));
+main.c|21| ^I^I^Ipush(atof(s));
+```
+This items treated by 'find duplicate items' engine as different, so both are
+stayed in history in spite of they are duplicates. But after list appears in
+quickfix window 'save quickfix changes' engine is started. It compares lines
+in quickfix buffer with items of appropriate found list in history. Since
+`^I^I^I` sequence is not displayed in quickfix buffer 'save quickfix changes'
+engine can't find second item in quickfix buffer and deletes it. Then if you
+try to repeat the same cscope query 'find duplicate qf' engine will not find
+generated quickfix list in history and add it as unique, in spite of it is
+duplicate (new list has `^I^I^I` sequence yet, but its duplicate in history
+already not). 
+
+To avoid this bug appears I recommend to use Vim native cscope run method
+(`g:sweetscope_runmethod = 1`) or switch off 'save quickfix changes' option
+(`g:sweetscope_save_qf_changes = 0`) if you want to use external run method.
