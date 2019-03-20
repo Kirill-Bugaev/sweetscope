@@ -22,8 +22,8 @@ if has('cscope')
 	set cscopeverbose	" enable messages from cscope
 	" use both ctag and cscope for tags
 	set cscopetag
-	" use ctags before cscope
-	set csto=1
+	" use tags before cscope database
+	set cscopetagorder=1
 
 	" populate quickfix list
 	if has('quickfix')
@@ -585,13 +585,14 @@ if has('cscope')
 
 endif
 
-func s:get_qf_bufnr()
-	for buf_i in getbufinfo()
-		if getbufvar(buf_i.bufnr, '&buftype') ==# 'quickfix'
-			return buf_i.bufnr
-		endif
-	endfor
-	return -1
+func s:get_opened_qf_bufnr()
+"	for buf_i in getbufinfo()
+"		if getbufvar(buf_i.bufnr, '&buftype') ==# 'quickfix'
+"			return buf_i.bufnr
+"		endif
+"	endfor
+"	return -1
+	return winbufnr(getqflist({'winid' : 1}).winid)
 endfunc
 
 " This function is modified version of written by xolox and published on
@@ -618,7 +619,7 @@ function! s:get_visual_selection()
     return join(lines, "\n")
 endfunction
 
-" Load cscope databbase for every buffer opened on Vim start
+" Load cscope database for every buffer opened on Vim start
 func s:LoadDB_OnVimEnter()
 	for buf_i in getbufinfo()
 		" Check if cscope db already loaded for buffer
@@ -1785,8 +1786,8 @@ endfunc
 func s:OpenQuickfixWindow()
 	let l:ret = 0
 
-	" Get quickfix bufnr
-	let qf_bufnr = s:get_qf_bufnr()
+	" Get opened quickfix bufnr
+	let qf_bufnr = s:get_opened_qf_bufnr()
 
 	" If quickfix not opened yet
 	if qf_bufnr == -1
@@ -2072,7 +2073,7 @@ func s:SaveCurrentQuickfixList()
 			if qfl_hi != -1
 				let s:history_list[qfl_hi].id = qfl.id
 				let s:history_list[qfl_hi].idx = qfl.idx
-				let qf_bufnr = s:get_qf_bufnr()
+				let qf_bufnr = s:get_opened_qf_bufnr()
 				if qf_bufnr != -1
 					let s:history_list[qfl_hi].lnum = getbufinfo(qf_bufnr)[0].lnum
 				endif
@@ -2091,7 +2092,7 @@ func s:SaveQuickfixChanges()
 	endif
 	
 	" Check if changes were made in quickfix buffer
-	if bufnr('%') == s:get_qf_bufnr()
+	if bufnr('%') == s:get_opened_qf_bufnr()
 		" Find current quickfix list in history list
 		let qfl_hi = s:FindQuickfixListInHistory(getqflist(s:qf_saveitems))
 		" If list have been found in history list
