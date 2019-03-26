@@ -170,12 +170,13 @@ let g:sweetscope_noduplicate_items = 1
 ```
 (boolean, default `1`)
 
-### sweetscope_save_qf_changes
+### sweetscope_save_qf_changes (unstable)
 If `1` plugin will save changes which has been made in quickfix buffer. This works only for deleting quickfix list items and not for changing text in quickfix buffer. So, no matter delete item or change its text, plugin will delete this item from corresponding list in history anyway. If this option is enabled it also makes quickfix buffer modifiable all time.
+Bug: sometimes quickfix list becomes empty without user intervention.
 ```vim
 let g:sweetscope_save_qf_changes = 1
 ```
-(boolean, default `1`)
+(boolean, default `0`)
 
 ### sweetscope_save_qf_stack
 Vim native cscope query removes all quickfix lists after current from stack. If this option is enabled plugin will save quickfix stack before cscope query run and restore after.

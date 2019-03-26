@@ -201,8 +201,6 @@ if has('cscope')
 	" Save changes of quickfix buffer
 	if exists('g:sweetscope_save_qf_changes') && s:sweetscope_savehistory
 		let s:sweetscope_save_qf_changes = g:sweetscope_save_qf_changes
-	elseif s:sweetscope_savehistory
-		let s:sweetscope_save_qf_changes = 1
 	else
 		let s:sweetscope_save_qf_changes = 0
 	endif
